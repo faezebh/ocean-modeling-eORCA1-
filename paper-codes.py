@@ -105,9 +105,9 @@ Air_sea_flux_of_CO2_3=d3['Air_sea_flux_of_CO2']
 
 
 def make_basin_masks(lon, lat, tmask=None,
-                     atl_west_deg=70,  # Atlantic west boundary in degrees (e.g., -70)
-                     atl_east_deg=20,  # Atlantic east boundary (e.g., 20E)
-                     ind_east_deg=150  # Indian east boundary (e.g., 150E)
+                     atl_west_deg=70,  
+                     atl_east_deg=20, 
+                     ind_east_deg=150  
                      ):
     
     
@@ -206,11 +206,6 @@ plot_basins_overlay(
 
 
 
-
-
-
-#%%
-#
 # ============================================================
 #   Basin-Region    
 # ============================================================
