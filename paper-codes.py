@@ -436,7 +436,7 @@ def plot_zones_basins_onepass(lon360, lat, zone_mask,
     m.drawparallels([-40, -60], linewidth=0.2, zorder=20)
     m.drawmeridians([20, 150, 290], labels=[1, 1, 1, 0], linewidth=1.2, color='k', zorder=20)
 
-    # Legend (18 entries)
+    # Legend 
     zone_labels_dict = {
         1: "40°S–NB", 2: "NB–SAF", 3: "SAF–PF", 4: "PF–SACCF", 5: "SACCF–SB", 6: "SB–COAST"
     }
@@ -569,7 +569,7 @@ for z in range(1, 7):
         "P", int(np.sum(zm & np.asarray(mask_pacific))),
         "Total", int(np.sum(zm))
     )
-print("=============================")
+print("==")
 
 
 
@@ -702,9 +702,9 @@ ax1.grid(axis='y', linestyle='--', linewidth=0.8, alpha=0.8)
 for spine in ["top", "right"]:
     ax1.spines[spine].set_visible(False)
 
-# =========================================================
+# ==============
 # (2) MLD Bar 
-# =========================================================
+# ===============
 ax2 = axes[1, 1]
 
 for bi, basin in enumerate(basin_labels):
@@ -802,9 +802,9 @@ x60, y60 = m2(0, -60)
 ax4.text(x40, y40, '40°S', fontsize=12, ha='center', va='bottom', color='black')
 ax4.text(x60, y60, '60°S', fontsize=12, ha='center', va='bottom', color='black')
 
-# ==========
+# 
 # Colorbars
-# ==========
+# 
 for ax, cf, label in zip([ax3, ax4], [cax1, cax2],
                         ["Wind Speed (m s$^{-1}$)", "Mixed Layer Depth (m)"]):
     divider = make_axes_locatable(ax)
@@ -813,9 +813,9 @@ for ax, cf, label in zip([ax3, ax4], [cax1, cax2],
     cb.set_label(label, fontsize=12, fontweight='bold')
     cb.ax.tick_params(labelsize=12, labelrotation=0)
 
-# ============
+# 
 # Front legend 
-# ============
+# 
 front_legend = [
     Line2D([0], [0], color='black',       lw=1, label='NB'),
     Line2D([0], [0], color='darkmagenta', lw=1, label='SAF'),
@@ -1053,9 +1053,7 @@ from mpl_toolkits.basemap import Basemap
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 from matplotlib.lines import Line2D
 
-# ----------------------------
 # Basin palettes 
-# ----------------------------
 atlantic_colors = ['#f3e5f5', '#e1bee7', '#ce93d8', '#ba68c8', '#ab47bc', '#9c27b0']
 indian_colors   = ['#d9d9d9', '#c2b8aa', '#a89e91', '#8f857a', '#756c63', '#5c544d']
 pacific_colors  = ['#fdae6b', '#fd8d3c', '#f16913', '#d94801', '#a63603', '#7f2704']
@@ -1068,9 +1066,7 @@ mean_wind_speed_6 = np.nanmean(wind_speed_6, axis=0)  # Control
 mean_wind_speed_4 = np.nanmean(wind_speed_4, axis=0)  # Quadratic
 mean_wind_speed_3 = np.nanmean(wind_speed_3, axis=0)  # Uniform
 
-# ----------------------------
 # Anomalies (south of 40S)
-# ----------------------------
 anom_wind_speed_3 = np.where(lat < -40, mean_wind_speed_3 - mean_wind_speed_6, np.nan)
 anom_wind_speed_4 = np.where(lat < -40, mean_wind_speed_4 - mean_wind_speed_6, np.nan)
 
@@ -1085,9 +1081,7 @@ plt.rcParams.update({
     "legend.fontsize": 12
 })
 
-# ----------------------------
 #fig
-# ----------------------------
 fig = plt.figure(figsize=(16, 16))
 gs = fig.add_gridspec(
     2, 2,
